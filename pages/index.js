@@ -1,8 +1,9 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import Image from 'next/image';
+import { connect } from 'react-redux';
+import styles from '../styles/Home.module.css';
 
-export default function Home() {
+const Home = ({ cart }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -65,5 +66,11 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
+
+const mapStateToProperties = state => ({
+  cart: state.cart
+});
+
+export default connect(mapStateToProperties)(Home);
