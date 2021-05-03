@@ -1,9 +1,11 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import React from 'react';
 import { connect } from 'react-redux';
+import { modifyCartAction } from '../redux/actions/cart';
 import styles from '../styles/Home.module.css';
 
-const Home = ({ cart }) => {
+const Home = ({ cart, modifyCartAction }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -73,4 +75,4 @@ const mapStateToProperties = state => ({
   cart: state.cart
 });
 
-export default connect(mapStateToProperties)(Home);
+export default connect(mapStateToProperties, { modifyCartAction })(Home);

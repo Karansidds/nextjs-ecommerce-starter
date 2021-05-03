@@ -1,20 +1,18 @@
-const ADD_ITEM = 'ADD_ITEM';
-const UPDATE_ITEM = 'UPDATE_ITEM';
+const MODIFY_CART = 'MODIFY_CART';
 const DELETE_ITEM = 'DELETE_ITEM';
 
-const addToCartAction = data => ({
-  type: ADD_ITEM,
-  payload: data
-});
+const modifyCartAction = data => dispatch => {
+  dispatch({
+    type: MODIFY_CART,
+    payload: data
+  });
+};
 
-const updateItemAction = data => ({
-  type: UPDATE_ITEM,
-  payload: data
-});
+const deleteItemAction = data => dispatch => {
+  dispatch({
+    type: DELETE_ITEM,
+    payload: data
+  });
+};
 
-const deleteItemAction = data => ({
-  type: DELETE_ITEM,
-  payload: data
-});
-
-export { addToCartAction, updateItemAction, deleteItemAction };
+export { modifyCartAction, deleteItemAction };

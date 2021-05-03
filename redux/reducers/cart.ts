@@ -10,16 +10,24 @@ const initialState = {
 
 const cartReducer = (state: CartState = initialState, action: AnyAction) => {
   switch (action.type) {
-    case 'ADD_ITEM':
+    case 'FETCH_CART_ITEMS':
       return {
-        ...state
+        ...state,
+        cart: action.payload
       };
 
-    case 'UPDATE_ITEM':
-      return state;
+    case 'MODIFY_CART': {
+      const cart = [...state.cart, action.payload];
+      return {
+        ...state,
+        cart
+      };
+    }
 
-    case 'DELETE_ITEM':
+    case 'DELETE_ITEM': {
+      const cart = [...state.cart];
       return state;
+    }
 
     default:
       return state;
