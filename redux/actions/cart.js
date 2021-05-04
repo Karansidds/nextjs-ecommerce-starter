@@ -1,5 +1,17 @@
+import client from 'apisauce';
+
+const FETCH_CART_ITEMS = 'FETCH_CART_ITEMS';
 const MODIFY_CART = 'MODIFY_CART';
 const DELETE_ITEM = 'DELETE_ITEM';
+
+const fetchItemsAction = userId => dispatch => {
+  client.get(`/some/url/${userId}`).then(data =>
+    dispatch({
+      type: FETCH_CART_ITEMS,
+      payload: data
+    })
+  );
+};
 
 const modifyCartAction = data => dispatch => {
   dispatch({
@@ -15,4 +27,4 @@ const deleteItemAction = data => dispatch => {
   });
 };
 
-export { modifyCartAction, deleteItemAction };
+export { fetchItemsAction, modifyCartAction, deleteItemAction };
