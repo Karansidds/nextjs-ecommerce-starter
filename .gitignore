@@ -35,3 +35,6 @@ yarn-error.log*
 
 # Windows
 desktop.ini
+
+# Custom
+notes.notes

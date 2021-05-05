@@ -1,11 +1,11 @@
-import client from 'apisauce';
+import client from '../../utils/apiSauce';
 
 const FETCH_CART_ITEMS = 'FETCH_CART_ITEMS';
 const MODIFY_CART = 'MODIFY_CART';
 const DELETE_ITEM = 'DELETE_ITEM';
 
 const fetchItemsAction = userId => dispatch => {
-  client.get(`/some/url/${userId}`).then(data =>
+  client.get(`https://fakestoreapi.com/products`).then(({ data }) =>
     dispatch({
       type: FETCH_CART_ITEMS,
       payload: data
