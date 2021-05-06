@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { modifyCartAction } from '../../../redux/actions/cart';
+import { modifyCart } from '../../../store/cart/cartSlice';
 
-const CartButton = ({ data, cart: { cart }, modifyCartAction }) => {
+const CartButton = ({ data, cart: { cart }, modifyCart }) => {
   const [item, updateItem] = React.useState(data);
   // Value that indicates whether an item is present in the cart
   const itemExists: boolean = React.useMemo(
@@ -11,7 +11,7 @@ const CartButton = ({ data, cart: { cart }, modifyCartAction }) => {
   );
 
   const handleAddItem = () => {
-    modifyCartAction(item);
+    modifyCart(item);
   };
 
   /* Add a custom button. The functionality will be the same. */
@@ -26,4 +26,4 @@ const mapStateToProps = state => ({
   cart: state.cart
 });
 
-export default connect(mapStateToProps, { modifyCartAction })(CartButton);
+export default connect(mapStateToProps, { modifyCart })(CartButton);

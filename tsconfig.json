@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "redux/reducers/cart.ts", "redux/reducers/index.ts", "pages/_app.js"  ],
+, "store/reducers/cart.ts", "store/reducers/index.ts", "pages/_app.js"  ],
   "exclude": [
     "node_modules"
   ]
